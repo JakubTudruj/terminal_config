@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ "$#" -lt 1 ]; then
+	echo "Illegal number of parameters"
+elif [ $1 = "import" ]; then
+	sudo cat ~/.zshrc > ~/.zshrc_copy
+	sudo cat ~/Dropbox/Ustawienia\ aplikacji/zshrc/zshrc.txt > ~/.zshrc
+	echo "imported"
+elif [ $1 = "export" ]; then
+	sudo cat ~/.zshrc > ~/Dropbox/Ustawienia\ aplikacji/zshrc/zshrc.txt
+	echo "exported"
+else
+	echo "invalid parameter"
+fi
