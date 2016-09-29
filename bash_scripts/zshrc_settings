@@ -8,12 +8,16 @@ elif [ $1 = "import" ]; then
 elif [ $1 = "export" ]; then
 	sudo cat ~/.zshrc > ~/Dropbox/Ustawienia\ aplikacji/zshrc/zshrc.txt
 
+	start_dir=$(pwd)
 	cd ~/repositories/terminal_config
+
 	git pull origin master
-	sudo cat ~/.zshrc > ~/repositories/terminal_config/ohmyzsh/zshrc.txt
-	git add .
-	git commit -m "zsh config $(date +%Y-%m-%d)"
+	sudo cat ~/.zshrc > ohmyzsh/zshrc.txt
+	git add ohmyzsh/zshrc.txt
+	git commit -m "zsh config $(date +%Y-%m-%d)" ohmyzsh/zshrc.txt
 	git push origin master
+
+	cd $start_dir
 
 	echo "exported"
 else
