@@ -3,10 +3,18 @@ if [ "$#" -lt 1 ]; then
 	echo "Illegal number of parameters"
 elif [ $1 = "import" ]; then
 	sudo cat ~/.zshrc > ~/.zshrc_copy
-	sudo cat ~/Dropbox/Ustawienia\ aplikacji/zshrc/zshrc.txt > ~/.zshrc
+	sudo cat ~/Dropbox/Ustawienia\ aplikacji/zshrc/zshrc.txt > ~/.zshrc	
 	echo "imported"
 elif [ $1 = "export" ]; then
 	sudo cat ~/.zshrc > ~/Dropbox/Ustawienia\ aplikacji/zshrc/zshrc.txt
+
+	cd ~/repositories/terminal_config
+	git pull origin master
+	sudo cat ~/.zshrc > ~/repositories/terminal_config/ohmyzsh/zshrc.txt
+	git add .
+	git commit -m "zsh config $(date +%Y-%m-%d)"
+	git push origin master
+
 	echo "exported"
 else
 	echo "invalid parameter"
