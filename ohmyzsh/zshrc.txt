@@ -100,3 +100,4 @@ alias git_rm_ds_store='find . -name .DS_Store -print0 | xargs -0 git rm -f --ign
 #aliases - my scripts
 alias scr_zsh_import='~/Dropbox/Ustawienia\ aplikacji/Bash\ scripts/zshrc_settings import'
 alias scr_zsh_export='~/Dropbox/Ustawienia\ aplikacji/Bash\ scripts/zshrc_settings export'
+#test 3
