@@ -11,11 +11,13 @@ elif [ $1 = "export" ]; then
 	start_dir=$(pwd)
 	cd ~/repositories/terminal_config
 
-	git pull origin master
 	sudo cat ~/.zshrc > ohmyzsh/zshrc.txt
 	git add ohmyzsh/zshrc.txt
 	git commit -m "zsh config $(date +%Y-%m-%d)" ohmyzsh/zshrc.txt
+	git stash
+	git pull origin master
 	git push origin master
+	git stash pop
 
 	cd $start_dir
 
