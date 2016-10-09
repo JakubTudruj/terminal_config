@@ -1,0 +1,29 @@
+#!/bin/bash
+
+snippets_dir="/Users/$(whoami)/Library/Developer/Xcode/UserData/CodeSnippets"
+
+if [ "$#" -lt 1 ]; then
+	echo "Usage:"
+	echo "xcode_snippets import - import snippets from backup folder to xcode folder"
+	echo "xcode_snippets import <dir> - import snippets from specific folder to xcode folder"
+	echo "xcode_snippets export - export snippets xcode folder to backup folder"
+	echo "xcode_snippets export <dir> - export snippets xcode folder to specific folder"
+	echo "xcode_snippets rename_last <new name> - rename last added snippet in xcode folder"
+	echo "xcode_snippets rename <file name> <new name> - rename specific snippet in xcode folder"
+	echo "xcode_snippets list - show list of snippets in xcode folder"
+elif [ $1 = "import" ]; then
+	
+	echo "imported"
+elif [ $1 = "export" ]; then
+	echo "exported"
+elif [ $1 = "rename_last" ]; then
+	echo "rename last"
+elif [ $1 = "rename" ]; then
+	echo "rename"
+	mv $2 $3
+
+elif [ $1 = "list" ]; then
+	ls -1 $snippets_dir
+else
+	echo "invalid parameter"
+fi
